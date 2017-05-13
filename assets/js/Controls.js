@@ -14,14 +14,13 @@ $(function() {
     $('.Horz_dial').trigger(
         'configure', {
             "min": 0,
-            "max": 100,
-            "stopper": false
+            "max": 100
         }
     );
 });
 
 //TimeBase Knob
-var TimeBase = 1;
+var TimeBase = 22;
 $(function() {
     $(".TimeBase_dial").knob({
         'change': function(v) {

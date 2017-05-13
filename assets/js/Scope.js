@@ -27,8 +27,9 @@ var myScope = {
         ctx.moveTo(0, canvassize.y / 2);
         var scope = [];
         var MaxX = Math.round(1000 * TimeBase);
-        for (var i = HorzTime; i < Math.min((MaxX + HorzTime), frameCount); i += TimeBase) {
-            scope.x = (canvassize.x / MaxX * (i - HorzTime));
+        var HorzTime2 = Math.round(Math.round((HorzTime + HorzTime_mini) / TimeBase) * TimeBase);
+        for (var i = HorzTime2; i < Math.min((MaxX + HorzTime2), frameCount); i += TimeBase) {
+            scope.x = (canvassize.x / MaxX * (i - HorzTime2));
             scope.y = (-1 * data[i] * canvassize.y / 2 * 1) + (canvassize.y / 2);
             ctx.lineTo(scope.x, scope.y);
             //ctx.arc(scope.x, scope.y, 1, 0, 2 * Math.PI);

@@ -54,8 +54,8 @@ function playbuffer(inputBuffer) {
     var myArrayBuffer = audioCtx.createBuffer(channels, frameCount / oversamplerate, audioCtx.sampleRate);
     var nowBuffering = myArrayBuffer.getChannelData(channel);
     for (var channel = 0; channel < channels; channel++) {
-        for (var i = 0; i < frameCount / oversamplerate; i += oversamplerate) {
-            nowBuffering[i] = inputBuffer[i] * 0.01;
+        for (var i = 0; i < (frameCount / oversamplerate); i += 1) {
+            nowBuffering[i] = inputBuffer[i * oversamplerate] * 0.01;
         }
     }
     // Get an AudioBufferSourceNode.

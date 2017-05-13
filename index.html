@@ -6,12 +6,9 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-
-    </style>
 </head>
 
-<body>
+<body onload="myScope.start()">
     <button onclick="whitenoise()">White Noise</button>
     <button onclick="FSK([2200, 1200], 200)">Make FSK 1k2/2k2 (200)</button>
     <button onclick="FSK([2200, 1200], 20)">Make FSK 1k2/2k2 (20)</button>
@@ -20,10 +17,24 @@
     <button onclick="FSK([19200, 9600], 1)">Make FSK 9k6/19k2 (1)</button>
     <button onclick="OFDM(2, 2)">Make OFDM</button>
     <button onclick="OFDM2(2, 2)">Make OFDM (ramp)</button>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/knob.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="assets/js/OFDM.js"></script>
+    <script type="text/javascript" src="assets/js/Scope.js"></script>
+    <script type="text/javascript" src="assets/js/Controls.js"></script>
     <p>Welcome to SigGenAudio!</p>
     <p>Open the Console for Data</p>
+    <style>
+        canvas {
+            border: 2px solid #ffffff;
+            background-color: #000000;
+        }
+    </style>
+    <p>Horizontal Axis</p>
+    <input type="text" value="0" class="Horz_dial">
+    <p>TimeBase</p>
+    <input type="text" value="1" class="TimeBase_dial">
 
 </body>
 

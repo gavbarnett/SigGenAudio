@@ -2,15 +2,14 @@ var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var button = document.querySelector('button');
 var pre = document.querySelector('pre');
 var myScript = document.querySelector('script');
-
+var oversamplerate = 10;
 
 
 // Stereo
 var channels = 1;
 // Create an empty mono stereo buffer at the
 // sample rate of the AudioContext
-var frameCount = audioCtx.sampleRate * 2; //48kHz
-console.log(audioCtx.sampleRate);
+var frameCount = (audioCtx.sampleRate * oversamplerate); //48kHz
 var myArrayBuffer;
 
 function whitenoise() {
@@ -31,7 +30,7 @@ function FSK(Freq, Loops) {
     // This gives us the actual array that contains the data
     var nowBuffering = [];
     var t = 0;
-    var p = 1 / audioCtx.sampleRate;
+    var p = 1 / (audioCtx.sampleRate * oversamplerate);
     var sel = 0;
     var data = "Data:- ";
     var f = Freq[sel];
@@ -51,10 +50,11 @@ function FSK(Freq, Loops) {
 }
 
 function playbuffer(inputBuffer) {
-    var myArrayBuffer = audioCtx.createBuffer(channels, frameCount, audioCtx.sampleRate);
+    myScope.run(inputBuffer);
+    var myArrayBuffer = audioCtx.createBuffer(channels, frameCount / oversamplerate, audioCtx.sampleRate);
     var nowBuffering = myArrayBuffer.getChannelData(channel);
     for (var channel = 0; channel < channels; channel++) {
-        for (var i = 0; i < frameCount; i++) {
+        for (var i = 0; i < frameCount / oversamplerate; i += oversamplerate) {
             nowBuffering[i] = inputBuffer[i] * 0.01;
         }
     }

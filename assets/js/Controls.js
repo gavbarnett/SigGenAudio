@@ -18,7 +18,7 @@ $(function() {
 $(function() {
     $(".Horz_dial_mini").knob({
         'change': function(v) {
-            HorzTime_mini = (HorzTime / 10) / 100 * v;
+            HorzTime_mini = (frameCount / 25) / 100 * v;
             myScope.run();
         }
     });

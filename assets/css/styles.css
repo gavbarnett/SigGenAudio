@@ -14,8 +14,24 @@
   border: 1px solid black;
   color: '#20c20e';
 }
+#Knobs{
+  break-before: auto;
+  margin: auto;
+  max-width: 522px;
+}
+#Horz{
+  margin: auto;
+  float: left;
+}
+#TimeBase{
+  margin: auto;
+  float: right;
+}
+
 #FunctionButtons{
   margin: auto;
+  clear: both;
+  max-width: 522px;
 }
 .FunctionKeys {
     background-color: #4CAF50; /* Green */
@@ -37,9 +53,4 @@
 .FunctionKeys:hover {
     background-color: #FFFFFF; /* Green */
     color: black;
-}
-
-#Knobs{
-  float: left;
-
 }

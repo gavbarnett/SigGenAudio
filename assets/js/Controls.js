@@ -18,6 +18,21 @@ $(function() {
         }
     );
 });
+$(function() {
+    $(".Horz_dial_mini").knob({
+        'change': function(v) {
+            //  HorzTime = frameCount / 100 * v;
+            //  HorzTime = Math.round(Math.round(HorzTime / TimeBase) * TimeBase)
+            //  myScope.run();
+        }
+    });
+    $('.Horz_dial').trigger(
+        'configure', {
+            "min": 0,
+            "max": 100
+        }
+    );
+});
 
 //TimeBase Knob
 var TimeBase = 22;
@@ -27,6 +42,21 @@ $(function() {
             var w = Math.pow(v, 2);
             TimeBase = Math.round(frameCount / (1000 * 10000) * w + 1);
             myScope.run();
+        }
+    });
+    $('.TimeBase_dial').trigger(
+        'configure', {
+            "min": 1,
+            "max": 100
+        }
+    );
+});
+$(function() {
+    $(".TimeBase_dial_mini").knob({
+        'change': function(v) {
+            //  var w = Math.pow(v, 2);
+            //    TimeBase = Math.round(frameCount / (1000 * 10000) * w + 1);
+            //    myScope.run();
         }
     });
     $('.TimeBase_dial').trigger(

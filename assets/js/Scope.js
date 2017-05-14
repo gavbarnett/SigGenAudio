@@ -62,5 +62,20 @@ var myScope = {
     //ctx.shadowColor = '#dddddd';
     //  ctx.shadowBlur = 3;
     ctx.stroke();
+    ctx.font = "14px Arial";
+    ctx.fontWeight = "bold";
+    ctx.fillStyle = "#ffffff";
+    //string = numeral(1000).format('0,0');
+    var TimeSpacing = math.format((1 / (audioCtx.sampleRate * oversamplerate)) * TimeBase * v_lines, {
+      notation: 'fixed',
+      precision: 3,
+      notation: 'engineering'
+    });
+    var FreqSpacing = math.format(1 / ((1 / (audioCtx.sampleRate * oversamplerate)) * TimeBase * v_lines), {
+      notation: 'fixed',
+      precision: 3,
+      notation: 'engineering'
+    });
+    ctx.fillText(TimeSpacing + "s/div, " + FreqSpacing + "Hz/Div", 20, 20);
   }
 }

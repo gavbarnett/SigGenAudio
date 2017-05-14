@@ -63,7 +63,6 @@ var myScope = {
     //  ctx.shadowBlur = 3;
     ctx.stroke();
     ctx.font = "14px Arial";
-    ctx.fontWeight = "bold";
     ctx.fillStyle = "#ffffff";
     //string = numeral(1000).format('0,0');
     var TimeSpacing = math.format((1 / (audioCtx.sampleRate * oversamplerate)) * TimeBase * v_lines, {

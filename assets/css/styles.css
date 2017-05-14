@@ -34,13 +34,14 @@
 #FunctionButtons{
   margin: auto;
   clear: both;
-  max-width: 522px;
+  max-width: 100%;
 }
 .FunctionKeys {
     background-color: #4CAF50; /* Green */
     border: 1px black;
     color: white;
-    float: left;
+    float: center;
+    vertical-align:middle;
     padding: 0px 0px;
     text-align: center;
     text-decoration: none;

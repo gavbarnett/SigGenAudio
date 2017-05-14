@@ -1,49 +1,56 @@
 //Horizontal Knob
 var HorzTime = 0;
-var HorzTime_mini = 0;
+var old_Horz = 0;
 $(function() {
-    $(".Horz_dial").knob({
-        'change': function(v) {
-            HorzTime = frameCount / 100 * v;
-            myScope.run();
-        }
-    });
-    $('.Horz_dial').trigger(
-        'configure', {
-            "min": 0,
-            "max": 100
-        }
-    );
-});
-$(function() {
-    $(".Horz_dial_mini").knob({
-        'change': function(v) {
-            HorzTime_mini = (frameCount / 25) / 100 * v;
-            myScope.run();
-        }
-    });
-    $('.Horz_dial_mini').trigger(
-        'configure', {
-            "min": 0,
-            "max": 100
-        }
-    );
+  $(".Horz_dial").knob({
+    'change': function(v) {
+      if (old_Horz < v) {
+        HorzTime += TimeBase;
+      }
+      if (old_Horz > v) {
+        HorzTime -= TimeBase;
+      }
+      if (HorzTime < 0) {
+        HorzTime = 0;
+      }
+      old_Horz = v;
+      myScope.run();
+    }
+  });
+  $('.Horz_dial').trigger(
+    'configure', {
+      "min": 0,
+      "max": 100,
+      "displayInput": false
+    }
+  );
 });
 
 //TimeBase Knob
 var TimeBase = 22;
+var old_TimeBase = 0;
 $(function() {
-    $(".TimeBase_dial").knob({
-        'change': function(v) {
-            var w = Math.pow(v, 2);
-            TimeBase = Math.round(frameCount / (1000 * 10000) * w + 1);
-            myScope.run();
-        }
-    });
-    $('.TimeBase_dial').trigger(
-        'configure', {
-            "min": 1,
-            "max": 100
-        }
-    );
+  $(".TimeBase_dial").knob({
+    'change': function(v) {
+      myScope.run();
+      if (old_TimeBase < v) {
+        TimeBase += 1;
+      }
+      if (old_TimeBase > v) {
+        TimeBase -= 1;
+      }
+      if (TimeBase < 1) {
+        TimeBase = 1;
+      }
+      old_TimeBase = v;
+      myScope.run();
+    }
+  });
+  $('.TimeBase_dial').trigger(
+    'configure', {
+      "min": 0,
+      "max": 100,
+      "displayInput": false
+    }
+  );
 });

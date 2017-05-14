@@ -5,42 +5,41 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body onload="myScope.start()">
-    <canvas id="ScopeDisplay"></canvas>
-    <section id="FunctionButtons">
-        <button class="FunctionKeys" onclick="whitenoise()">White Noise</button>
-        <button class="FunctionKeys" onclick="FSK([2200, 1200], 200)">FSK 1k2/2k2 (200)</button>
-        <button class="FunctionKeys" onclick="FSK([2200, 1200], 20)">FSK 1k2/2k2 (20)</button>
-        <button class="FunctionKeys" onclick="FSK([2200, 1200], 1)">FSK 1k2/2k2 (1)</button>
-        <button class="FunctionKeys" onclick="FSK([19200, 9600], 20)">FSK 9k6/19k2 (20)</button>
-        <button class="FunctionKeys" onclick="FSK([19200, 9600], 1)">FSK 9k6/19k2 (1)</button>
-        <button class="FunctionKeys" onclick="OFDM1(2, 2, 3000, 50)"> OFDM</button>
-        <button class="FunctionKeys" onclick="OFDM2(2, 2)">Make OFDM (ramp)</button>
-        <button class="FunctionKeys" onclick="FullOFDM(2, 2, 3000, 50)">Full OFDM</button>
-    </section>
-    <section id="Knobs">
-        <div id="Horz">
-            <p>Horizontal Axis</p>
-            <input type="text" class="Horz_dial" value="1" data-width="100" data-cursor=true data-thickness=.3 data-fgColor="#222222">
-            <input type="text" class="Horz_dial_mini" value="50" data-width="60" data-cursor=true data-thickness=.3 data-fgColor="#222222">
-        </div>
-        <div id="TimeBase">
-            <p>Time Base</p>
-            <input type="text" class="TimeBase_dial" value="22" data-width="100" data-cursor=true data-thickness=.3 data-fgColor="#222222">
-        </div>
-    </section>
+  <canvas id="ScopeDisplay"></canvas>
+  <section id="FunctionButtons">
+    <button class="FunctionKeys" onclick="whitenoise()">White Noise</button>
+    <button class="FunctionKeys" onclick="FSK([2200, 1200], 200)">FSK 1k2/2k2 (200)</button>
+    <button class="FunctionKeys" onclick="FSK([2200, 1200], 20)">FSK 1k2/2k2 (20)</button>
+    <button class="FunctionKeys" onclick="FSK([2200, 1200], 1)">FSK 1k2/2k2 (1)</button>
+    <button class="FunctionKeys" onclick="FSK([19200, 9600], 20)">FSK 9k6/19k2 (20)</button>
+    <button class="FunctionKeys" onclick="FSK([19200, 9600], 1)">FSK 9k6/19k2 (1)</button>
+    <button class="FunctionKeys" onclick="OFDM1(2, 2, 3000, 50)"> OFDM</button>
+    <button class="FunctionKeys" onclick="OFDM2(2, 2)">Make OFDM (ramp)</button>
+    <button class="FunctionKeys" onclick="FullOFDM(2, 2, 3000, 50)">Full OFDM</button>
+  </section>
+  <section id="Knobs">
+    <div id="Horz">
+      <p>Horizontal Axis</p>
+      <input type="text" class="Horz_dial" value="0" data-width="100" data-cursor=true data-thickness=.3 data-fgColor="#222222">
+    </div>
+    <div id="TimeBase">
+      <p>Time Base</p>
+      <input type="text" class="TimeBase_dial" value="0" data-width="100" data-cursor=true data-thickness=.3 data-fgColor="#222222">
+    </div>
+  </section>
 </body>
 <section id="TheScripts">
-    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/knob.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/OFDM.js"></script>
-    <script type="text/javascript" src="assets/js/Scope.js"></script>
-    <script type="text/javascript" src="assets/js/Controls.js"></script>
+  <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/knob.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <script type="text/javascript" src="assets/js/OFDM.js"></script>
+  <script type="text/javascript" src="assets/js/Scope.js"></script>
+  <script type="text/javascript" src="assets/js/Controls.js"></script>
 </section>
 
 </html>
